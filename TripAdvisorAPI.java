@@ -11,7 +11,7 @@ public class TripAdvisorAPI implements API {
         rooms[0] = room1;
         Room room2 = new Room(4, 9, 6, "e", "r");
         rooms[1] = room2;
-        Room room3 = new Room(7, 8 , 9, "t", "y");
+        Room room3 = new Room(7, 9 , 9, "t", "y");
         rooms[2] = room3;
         Room room4 = new Room(10, 11, 12, "u", "i");
         rooms[3] = room4;

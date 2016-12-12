@@ -13,7 +13,7 @@ public class GoogleAPI implements API {
         rooms[1] = room2;
         Room room3 = new Room(7, 8 , 9, "t", "y");
         rooms[2] = room3;
-        Room room4 = new Room(10, 11, 12, "u", "i");
+        Room room4 = new Room(10, 14, 12, "u", "i");
         rooms[3] = room4;
         Room room5 = new Room(13,14,15, "o", "p");
         rooms[4] = room5;

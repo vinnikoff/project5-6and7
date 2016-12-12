@@ -31,26 +31,18 @@ public class Controller {
         System.arraycopy(result4, 0, result5, result3.length, result4.length);
         lenghtres=result5.length;
 
-
-        for (int i=0; i<result5.length; i++) {
-            DAOImpl dao = new DAOImpl();
-            dao.save(result5[i]);
-            dao.delete(result5[i]);
-            dao.update(result5[i]);
-            dao.findById(result5[i].getId());
-            System.out.println("***");
-        }
-
         return result5;
 
     }
+
+
 
     public int getLenght() {
         return lenghtres;
     }
 
 
-    Room[] check(Room[] values) {
+   /** Room[] check(Room[] values) {
         boolean mask[] = new boolean[values.length];
         int removeCount = 0;
         Room[] tmp = new Room[5];
@@ -78,6 +70,51 @@ public class Controller {
         System.out.println("Одинаковых номеров (все API): " + mask.length);
         return result;
     }
+    */
+
+
+    Room[] check2(API api1, API api2) {
+        Room[] apiout1=api1.getAllRoom();
+        Room[] apiout2=api2.getAllRoom();
+        int lengthOut;
+        if (apiout2.length>apiout1.length) lengthOut= apiout2.length;
+        else lengthOut=apiout1.length;
+        Room[] apioutAll= new Room[lengthOut];
+        int countApioutAll=0;
+
+        for (int i = 0; i < apiout1.length; i++)
+        {
+            for (int j = 0; j < apiout2.length; j++)
+            {
+                if (apiout1[i].equals(apiout2[j])) {
+                    apioutAll[countApioutAll]=apiout1[i];
+                    countApioutAll++;
+                }
+            }
+        }
+
+
+        int removeCount=0;
+        boolean mask[] = new boolean[lengthOut];
+        for (int m = 0; m < lengthOut; m++) {
+                    if (apioutAll[m]!=null) {
+                        mask[m] = true;
+                        removeCount++;
+                    }
+                }
+
+
+        Room[] result = new Room[removeCount];
+
+        for (int i = 0, j = 0; i < lengthOut; i++) {
+            if (mask[i]) {
+                result[j++] = apioutAll[i];
+            }
+        }
+
+        return result;
+    }
+
 
 
 
