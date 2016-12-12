@@ -7,9 +7,13 @@ public class Main {
         Controller controller = new Controller();
 
         controller.requestRooms(2, 3, "q", "w");
-
+        controller.requestRooms(9, 6, "e", "r");
+        controller.requestRooms(14, 12, "u", "i");
 
         controller.check2(new BookingComAPI(), new GoogleAPI());
+        controller.check2(new BookingComAPI(), new TripAdvisorAPI());
+        controller.check2(new TripAdvisorAPI(), new GoogleAPI());
+
 
 
         //Room[] roomsoutcheck = new Room[1000];
